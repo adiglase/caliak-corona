@@ -14,6 +14,8 @@ const getData = async countryCode => {
   let dataApi;
   if (!countryCode || countryCode === 'worldwide') {
     dataApi = axios.get(`https://covid19.mathdro.id/api/`);
+  } else if (countryCode === 'ID') {
+    dataApi = axios.get('https://indonesia-covid-19.mathdro.id/api');
   } else {
     dataApi = axios.get(
       `https://covid19.mathdro.id/api/countries/${countryCode}`
@@ -23,7 +25,11 @@ const getData = async countryCode => {
   return await dataApi
     .then(response => {
       const data = response.data;
-      renderData(data);
+      if (countryCode === 'ID') {
+        renderIndo(data);
+      } else {
+        renderData(data);
+      }
     })
     .catch(error => {
       renderLoader('error', confirmed, recovered, death);
@@ -37,5 +43,4 @@ const dropdown = document.querySelector('#dropdown');
 dropdown.addEventListener('change', e => {
   renderLoader('succes', confirmed, recovered, death);
   getData(e.target.value);
-  getChartData(e.target.value);
 });

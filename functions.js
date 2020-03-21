@@ -28,6 +28,20 @@ const renderData = data => {
   )}%`;
 };
 
+const renderIndo = data => {
+  confirmed.textContent = data.jumlahKasus;
+  recovered.textContent = data.sembuh;
+  death.textContent = data.meninggal;
+
+  recoveredPercentage.textContent = `${Math.round(
+    (data.sembuh * 100) / data.jumlahKasus
+  )}%`;
+
+  deathPercentage.textContent = `${Math.round(
+    (data.meninggal * 100) / data.jumlahKasus
+  )}%`;
+};
+
 const renderLoader = (status, confirmed, recovered, death) => {
   if (status === 'succes') {
     confirmed.innerHTML =
