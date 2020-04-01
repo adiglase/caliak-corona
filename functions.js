@@ -130,3 +130,60 @@ const getLastUpdate = async () => {
 };
 
 getLastUpdate();
+
+const getProvince = async () => {
+  try {
+    const response = await axios.get(
+      'https://indonesia-covid-19-api.now.sh/api/provinsi'
+    );
+    renderProvince(response.data.data);
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+getProvince();
+
+const provinceList = document.querySelector('#province-list');
+const renderProvince = datas => {
+  console.table(datas);
+
+  const table = document.createElement('table');
+  table.id = 'province';
+
+  let newRow;
+  let provinsi, positif, sembuh, meninggal;
+  for (let data of datas) {
+    newRow = table.insertRow(-1);
+
+    provinsi = newRow.insertCell(0);
+    provinsi.textContent = data.provinsi;
+
+    positif = newRow.insertCell(1);
+    positif.textContent = data.kasusPosi;
+
+    sembuh = newRow.insertCell(2);
+    sembuh.textContent = data.kasusSemb;
+
+    meninggal = newRow.insertCell(3);
+    meninggal.textContent = data.kasusMeni;
+  }
+
+  const header = table.createTHead();
+  header.id = 'table-head';
+  const headRow = header.insertRow(0);
+
+  const prov = headRow.insertCell(0);
+  prov.textContent = 'Provinsi';
+
+  const pos = headRow.insertCell(1);
+  pos.textContent = 'Positif';
+
+  const semb = headRow.insertCell(2);
+  semb.textContent = 'Sembuh';
+
+  const meni = headRow.insertCell(3);
+  meni.textContent = 'Meninggal';
+
+  provinceList.appendChild(table);
+};

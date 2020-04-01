@@ -219,4 +219,26 @@ footer a {
     transform: scale(1);
   }
 }
+
+table {
+  font-family: "Roboto", sans-serif;
+  color: #ced4da;
+  font-size: 1.3rem;
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  border: 3px solid #36404a;
+  margin-bottom: 50px;
+}
+
+table #table-head {
+  text-align: center;
+  font-weight: 700;
+}
+
+table th,
+table td {
+  border: 3px solid #36404a;
+  padding: 10px;
+}
 /*# sourceMappingURL=style.css.map */

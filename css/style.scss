@@ -211,3 +211,25 @@ footer {
     transform: scale(1);
   }
 }
+
+table {
+  font-family: $second-font;
+  color: $box-font-color2;
+  font-size: 1.3rem;
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  border: 3px solid $box-color;
+  margin-bottom: 50px;
+
+  #table-head {
+    text-align: center;
+    font-weight: 700;
+  }
+
+  th,
+  td {
+    border: 3px solid $box-color;
+    padding: 10px;
+  }
+}
