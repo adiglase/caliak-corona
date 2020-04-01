@@ -146,8 +146,6 @@ getProvince();
 
 const provinceList = document.querySelector('#province-list');
 const renderProvince = datas => {
-  console.table(datas);
-
   const table = document.createElement('table');
   table.id = 'province';
 
