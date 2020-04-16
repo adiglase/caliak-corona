@@ -1,4 +1,4 @@
-const renderDropDown = countries => {
+const renderDropDown = (countries) => {
   for (const country of countries) {
     const option = document.createElement('option');
     option.value = country.alpha2Code;
@@ -14,7 +14,7 @@ const death = document.querySelector('#death-value');
 const recoveredPercentage = document.querySelector('#recovered-percentage');
 const deathPercentage = document.querySelector('#death-percentage');
 
-const renderData = data => {
+const renderData = (data) => {
   confirmed.textContent = data.confirmed.value;
   recovered.textContent = data.recovered.value;
   death.textContent = data.deaths.value;
@@ -28,7 +28,7 @@ const renderData = data => {
   )}%`;
 };
 
-const renderIndo = data => {
+const renderIndo = (data) => {
   confirmed.textContent = data.jumlahKasus;
   recovered.textContent = data.sembuh;
   death.textContent = data.meninggal;
@@ -91,7 +91,7 @@ getChartData = async (countryName, date) => {
 const renderChart = (data, countryName, date) => {
   let datas = data.data;
 
-  const filteredCountry = datas.filter(data => {
+  const filteredCountry = datas.filter((data) => {
     return data.countryRegion === countryName;
   });
   let dateItem = [];
@@ -145,7 +145,7 @@ const getProvince = async () => {
 getProvince();
 
 const provinceList = document.querySelector('#province-list');
-const renderProvince = datas => {
+const renderProvince = (datas) => {
   const table = document.createElement('table');
   table.id = 'province';
 
